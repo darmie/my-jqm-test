@@ -23,9 +23,9 @@ var  title = gup('title');
 
 var  title = title.replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ");
 var  imgsrc = gup('imgsrc');
-var username = $(input#textinput1).val();
+var username = document.getElementById("#textinput1").val();
 //var movie_name = $(input#textinput2).val();
-var story = $(input#textarea1).val();
+var story = document.getElementById("#textarea1").val();
 //Run in Client
 
 if (Meteor.isClient){
