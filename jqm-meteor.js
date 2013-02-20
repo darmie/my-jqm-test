@@ -1,14 +1,18 @@
 // This code is meant to get neccessary credentials from the location url, get user inputs, update DOM and database. 
 
 
-function gup(parameter) { 
-  var loc = document.location.search.substring(1, document.location.search.length);
-  var param_value = false;
 
-  var params = loc.split("&");
-  for (i=0; i<params.length;i++) {
-      param_name = params[i].substring(0,params[i].indexOf('='));
-      if (param_name == parameter) {
+//Run in Client
+
+if (Meteor.isClient){
+	function gup(parameter) { 
+  		var loc = location.search.substring(1, location.search.length);
+	  	var param_value = false;
+
+  		var params = loc.split("&");
+  	for (i=0; i<params.length;i++) {
+     		 param_name = params[i].substring(0,params[i].indexOf('='));
+     	 if (param_name == parameter) {
           param_value = params[i].substring(params[i].indexOf('=')+1)
       }
   }
@@ -19,16 +23,13 @@ function gup(parameter) {
       return false; //Here determine return if no parameter is found
   }
 }
-var  title = gup('title');
+	var  title = gup('title');
 
-var  title = title.replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ");
-var  imgsrc = gup('imgsrc');
-var username = document.getElementById("#textinput1").val();
-//var movie_name = $(input#textinput2).val();
-var story = document.getElementById("#textarea1").val();
-//Run in Client
-
-if (Meteor.isClient){
+	var  title = title.replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ").replace("%20"," ");
+	var  imgsrc = gup('imgsrc');
+	var username = document.getElementById("#textinput1").val();
+	//var movie_name = $(input#textinput2).val();
+	var story = document.getElementById("#textarea1").val();
 	reviews = new Meteor.Collections("reviews");
 	Meteor.subscribe("reviews");
 
