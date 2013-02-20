@@ -4,7 +4,7 @@
 
 //Run in Client
 
-if (Meteor.isClient){
+if (Meteor.is_Client){
 	function gup(parameter) { 
   		var loc = location.search.substring(1, location.search.length);
 	  	var param_value = false;
@@ -30,7 +30,7 @@ if (Meteor.isClient){
 	var username = document.getElementById("#textinput1").val();
 	//var movie_name = $(input#textinput2).val();
 	var story = document.getElementById("#textarea1").val();
-	reviews = new Meteor.Collections("reviews");
+	reviews = new Meteor.Collection("reviews");
 	Meteor.subscribe("reviews");
 
 	Template.reviews.all = function(){
@@ -61,17 +61,18 @@ if (Meteor.isClient){
 
 
 	
-if (Meteor.isServer){
+if (Meteor.is_Server){
 	Meteor.startup(function() {
-		reviews = new Meteor.Collections("reviews");
+		reviews = new Meteor.Collection("reviews");
 	
 		if (!reviews.find({}).count()){
 	
 			reviews.insert({'name':Session.get("user"), 'review':Session.get("review"), 'movietitle':title, 'image':imagesrc});
 	
 		}
-	Meteor.publish("reviews");
+		
+		Meteor.publish("reviews");
 	});
-	}
+}
 	
 
