@@ -1,0 +1,112 @@
+<head>
+  <title>mytestjqm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="stylesheet" href="/jquerymobilestructure120min.css" />
+  <script src="/jquery-1.7.1.min.js"></script>
+  <script src="/jquery.mobile-1.1.1.js"></script>
+  <style>
+	#loading-image {
+	background-color: #333;
+	width: 55px;
+	height: 55px;
+	position: fixed;
+	top: 50%;
+	left: 50%px;
+	z-index: 1;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px; /* future proofing */
+	-khtml-border-radius: 10px;
+}
+  </style>
+  <script type="application/javascript">
+
+
+$(function() {
+		 jQuery(window).load(function() {
+			jQuery('#loading-image').hide();
+		});
+		$('#imgsrc').attr('src',imgsrc);
+		$('#title').html(title);
+		
+		
+
+    });
+</script>
+</head>
+
+<body>
+        <!-- Home -->
+        <div data-role="page" id="page1">
+            {{> title}}
+            <div data-role="content">
+			                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div style="width: 133px; height: 197px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+                            <img height="197px" width="133px" id="imgsrc" src="{{> src}}" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -67px; margin-top: -100px" />
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <h4>
+                            {{> title}}
+                        </h4>
+						<h5 id="desc">
+                            
+                        </h5>
+                    </div>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput1">
+                        </label>
+                        <input name="username" id="textinput1" placeholder="Your Name" value="" type="text" />
+                    </fieldset>
+                </div>
+                <!--<div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput2">
+                        </label>
+                        <input name="movie_name" id="textinput2" placeholder="Movie Title" value="" type="text" />
+                    </fieldset>
+                </div>-->
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textarea1">
+                        </label>
+                        <textarea name="reviews" id="textarea1" placeholder="Your Review">
+                        </textarea>
+                    </fieldset>
+                </div>
+                <input class="button" type="submit" data-inline="true" data-theme="a" value="Submit" data-mini="true" />
+                
+				{{> reviewList}}
+				
+            </div>
+			
+        </div>
+    </body>
+
+
+<template name="title">
+  <div data-theme="a" data-role="header">           
+    {{movietitle}}             
+  </div>
+</template>
+<template name="src">        
+    {{image}}           
+</template>
+<template name="reviewList">
+	<div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <h4>
+                            {{user}} :
+                        </h4>
+                    </div>
+                    <div class="ui-block-b">
+                        <h5>
+                            {{content}}
+                        </h5>
+                    </div>
+                </div>
+</template>
