@@ -2,7 +2,7 @@
 
 
 function gup(parameter) { 
-  var loc = location.search.substring(1, location.search.length);
+  var loc = document.location.search.substring(1, document.location.search.length);
   var param_value = false;
 
   var params = loc.split("&");
